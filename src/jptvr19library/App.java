@@ -10,6 +10,7 @@ import entity.Book;
 import entity.Reader;
 import java.util.Scanner;
 import tools.CreaterBook;
+import tools.CreaterReader;
 
 /**
  *
@@ -51,6 +52,14 @@ class App {
                     System.out.println("Создана книга: "+book.getName());
                     //System.out.println(book.toString());
                     break;
+                    CreaterReader createrReader = new CreaterReader();
+                    Reader reader = createrReader.getReader(); 
+                    for (int i = 0; i < books.length; i++) {
+                        if(books[i] == null){
+                            books[i] = book;
+                            break;
+                        }
+                    }
                 case "2":
                     System.out.println("--- Список книг ---");
                     for (int i = 0; i < books.length; i++) {
