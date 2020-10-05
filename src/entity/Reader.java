@@ -10,7 +10,7 @@ package entity;
  * @author pupil
  */
 public class Reader {
-    private String name;
+    private String firstname;
     private String Lastname;
     private String phone;
 
@@ -18,17 +18,17 @@ public class Reader {
     }
 
     public Reader(String name, String Lastname, String phone) {
-        this.name = name;
+        this.firstname = name;
         this.Lastname = Lastname;
         this.phone = phone;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstname(String name) {
+        this.firstname = name;
     }
 
     public String getLastname() {
@@ -45,6 +45,11 @@ public class Reader {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    @Override
+    public String toString() {
+        return "Reader{" + "name=" + firstname + ", Lastname=" + Lastname + ", phone=" + phone + '}';
     }
     
     

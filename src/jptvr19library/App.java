@@ -7,13 +7,16 @@ package jptvr19library;
 
 
 import entity.Book;
+import entity.Reader;
 import java.util.Scanner;
+import tools.CreaterBook;
 
 /**
  *
  * @author pupil
  */
 class App {
+    private Book[] books = new Book[10];
     public void run(){
         System.out.println("--- Библиотека ---");
         boolean repeat = true;
@@ -26,7 +29,7 @@ class App {
             System.out.println("4. Список читателей");
             System.out.println("5. Выдать книгу читателю");
             System.out.println("6. Вернуть книгу в библиотеку");
-            System.out.print("Выберите задачу");
+            System.out.print("Выберите задачу:");
             Scanner scanner = new Scanner(System.in);
             String task = scanner.nextLine();
             switch (task) {
@@ -36,16 +39,32 @@ class App {
                     break;
                 case "1":
                     System.out.println("--- Добавить новую книгу ---");
-                    Book book = new Book("Voina i mir", "L.Tolstoy", 2010, "123-1234");
-                    System.out.println("Название книги:" +book.getName());
-                    System.out.println(book.toString());
+                    //Book book = new Book("Voina i mir", "L.Tolstoy", 2010, "123-1234");
+                    CreaterBook createrBook = new CreaterBook();
+                    Book book = createrBook.getBook(); 
+                    for (int i = 0; i < books.length; i++) {
+                        if(books[i] == null){
+                            books[i] = book;
+                            break;
+                        }
+                    }
+                    System.out.println("Создана книга: "+book.getName());
+                    //System.out.println(book.toString());
                     break;
                 case "2":
                     System.out.println("--- Список книг ---");
+                    for (int i = 0; i < books.length; i++) {
+                        if (books[i] != null){
+                             System.out.println(i+1+". " + books[i].toString());
+                        }
+                    }
                     break;
                 case "3":
                     System.out.println("--- Зарегистрировать читателя ---");
-                    Reader reader = new Reader("")
+                    Reader reader = new Reader("Ivan", "Ivanov", "56565656");
+                    System.out.println("Имя читателя: "
+                            +reader.getFirstName());
+                    System.out.println("Фамилия читателя: "+reader.getLastname());
                     break;
                 case "4":
                     System.out.println("--- Список читателей ---");
@@ -59,7 +78,7 @@ class App {
                 break;
                 default:
                     System.out.println("Нет такой задачи");
-            }   
-        }
-    }while(repeat);
+            }
+        }while(repeat);
+    }
 }
