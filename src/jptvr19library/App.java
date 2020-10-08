@@ -6,6 +6,7 @@
 package jptvr19library;
 
 
+import tools.BookSaver;
 import entity.Book;
 import entity.Reader;
 import java.util.Scanner;
@@ -19,6 +20,11 @@ import tools.CreaterReader;
 class App {
     private Book[] books = new Book[10];
     private Reader[] readers = new Reader[10];
+    
+    public App() {
+        BookSaver bookSaver = new BookSaver();
+        books = bookSaver loadBooks();
+    }
     public void run(){
         System.out.println("--- Библиотека ---");
         boolean repeat = true;
@@ -50,6 +56,9 @@ class App {
                             break;
                         }
                     }
+                    BookSaver bookSaver = new BookSaver();
+                    System.out.println("Название книги" +book.getName());
+                    break;
                 case "2":
                     System.out.println("--- Список книг ---");
                     for (int i = 0; i < books.length; i++) {
@@ -60,9 +69,25 @@ class App {
                     break;
                 case "3":
                     System.out.println("--- Зарегистрировать читателя ---");
-                    Reader reader = new Reader("Ivan", "Ivanov", "56565656");
-                    System.out.println("Имя читателя: "
-                            +reader.getFirstName());
+
+                    CreaterReader createrReader = new CreaterReader();
+                    Reader reader = createrReader.getReader(); 
+                    for (int i = 0; i < readers.length; i++) {
+                        if(readers[i] == null){
+                            readers[i] = reader;
+                            break;
+                        }
+                    }
+                    System.out.println("Название книги" +reader.getFirstname());
+                    break;
+                case "4":
+                    System.out.println("--- Список книг ---");
+                    for (int i = 0; i < readers.length; i++) {
+                        if (readers[i] != null){
+                             System.out.println(i+1+". " + readers[i].toString());
+                        }
+                    }
+                    break;
                     System.out.println("Фамилия читателя: "+reader.getLastname());
                     break;
                 case "4":
