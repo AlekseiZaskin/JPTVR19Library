@@ -18,6 +18,7 @@ import tools.CreaterReader;
  */
 class App {
     private Book[] books = new Book[10];
+    private Reader[] readers = new Reader[10];
     public void run(){
         System.out.println("--- Библиотека ---");
         boolean repeat = true;
@@ -43,17 +44,6 @@ class App {
                     //Book book = new Book("Voina i mir", "L.Tolstoy", 2010, "123-1234");
                     CreaterBook createrBook = new CreaterBook();
                     Book book = createrBook.getBook(); 
-                    for (int i = 0; i < books.length; i++) {
-                        if(books[i] == null){
-                            books[i] = book;
-                            break;
-                        }
-                    }
-                    System.out.println("Создана книга: "+book.getName());
-                    //System.out.println(book.toString());
-                    break;
-                    CreaterReader createrReader = new CreaterReader();
-                    Reader reader = createrReader.getReader(); 
                     for (int i = 0; i < books.length; i++) {
                         if(books[i] == null){
                             books[i] = book;
