@@ -17,14 +17,13 @@ public class CreaterReader {
     private Scanner scanner = new Scanner(System.in);
     public Reader getReader() {
         Reader reader = new Reader();
-        System.out.println("--- Создание книги ---");
-        System.out.println("Введите имя книги: ");
+        System.out.println("--- Регистрация нового пользователя ---");
+        System.out.print("Введите имя: ");
         reader.setFirstname(scanner.nextLine());
-        System.out.println("Введите автора книги: ");
+        System.out.println("Введите фамилию: ");
         reader.setLastname(scanner.nextLine());
-        System.out.println("Введите год издания книги: ");
-        reader.setPhone(scanner.nextLine());
-        scanner.nextLine();
+        System.out.println("Введите телефон: ");
+        reader.setFirstname(scanner.nextLine());
         return reader;
     }
     

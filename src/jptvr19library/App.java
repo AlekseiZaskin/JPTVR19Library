@@ -6,6 +6,9 @@
 package jptvr19library;
 
 
+import tools.CreatorHistory;
+import tools.creatorHistory;
+import tools.history;
 import tools.BookSaver;
 import entity.Book;
 import entity.Reader;
@@ -20,11 +23,13 @@ import tools.CreaterReader;
 class App {
     private Book[] books = new Book[10];
     private Reader[] readers = new Reader[10];
+    private History[] histories = new History[10];
     
     public App() {
         BookSaver bookSaver = new BookSaver();
-        books = bookSaver loadBooks();
+        books = bookSaver.loadBooks();
     }
+    
     public void run(){
         System.out.println("--- Библиотека ---");
         boolean repeat = true;
@@ -95,7 +100,14 @@ class App {
                     break;
                 case "5":
                     System.out.println("--- Выдать книгу читателю ---");
-                    break;
+                    CreatorHistory Creatorhistory = new CreatorHistory();
+                    history history = creatorHistory.takeOnBook(books, readers);
+                    if (historyes[i] == null) {
+                        historyes[i] = history;
+                        break;
+                      }   
+                    }
+                    
                 case "6":
                     System.out.println("--- Вернуть книгу в библиотеку ---");
 
