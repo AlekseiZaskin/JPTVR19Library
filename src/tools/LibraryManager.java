@@ -15,17 +15,28 @@ import java.util.Scanner;
  * @author pupil
  */
 public class LibraryManager {
+    private Scanner scanner = new Scanner (System.in);
+    private ReaderManager readerManager = new ReaderManager();
     
     public History takeOnBook (Book[] books, Reader[] readers) {
         History history = new History();
+        
         System.out.println("--- Список читателей ---");
+        readerManager.printListReaders(readers);
+        
+        System.out.println("Выберите номер читателя: ");
+        int readerNumber = scanner.nextInt();
+        scanner.nextLine();
+        Reader reader = readers[readerNumber-1];
+        history.setReader(reader);
+        System.out.println("--- Список книг ---");
         for (int i = 0; i < readers.length i++) {
             if (readers[i] != null){
                 System.out.println(i+1". " + readers[i].toString());
             } 
         }
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Выберите номер читателя");
+        System.out.println("Выберите номер читателя: ");
         int readerNumber = scanner.nextInt();
         scanner.nextLine();
         Reader reader = readers(reader.Number-1);

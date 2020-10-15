@@ -13,7 +13,7 @@ import tools.BookSaver;
 import entity.Book;
 import entity.Reader;
 import java.util.Scanner;
-import tools.CreaterBook;
+import tools.BookManager;
 import tools.CreaterReader;
 
 /**
@@ -24,7 +24,9 @@ class App {
     private Book[] books = new Book[10];
     private Reader[] readers = new Reader[10];
     private History[] histories = new History[10];
-    
+    private BookManager bookManager = new BookManaer();
+    private ReaderManager readerManager = new ReaderManager();
+    private LibraryManager libraryManager = new LibraryManager();
     public App() {
         BookSaver bookSaver = new BookSaver();
         books = bookSaver.loadBooks();
@@ -47,8 +49,9 @@ class App {
             System.out.println("4. Список читателей");
             System.out.println("5. Выдать книгу читателю");
             System.out.println("6. Вернуть книгу в библиотеку");
+            System.out.println("7. Список выданных книг");
             System.out.println("Список выданных книг");
-            System.out.print("Выберите задачу:");
+            System.out.println("Выберите задачу: ");
             Scanner scanner = new Scanner(System.in);
             String task = scanner.nextLine();
             switch (task) {
@@ -59,16 +62,13 @@ class App {
                 case "1":
                     System.out.println("--- Добавить новую книгу ---");
                     //Book book = new Book("Voina i mir", "L.Tolstoy", 2010, "123-1234");
-                    CreaterBook createrBook = new CreaterBook();
-                    Book book = createrBook.getBook(); 
-                    for (int i = 0; i < books.length; i++) {
-                        if(books[i] == null){
-                            books[i] = book;
-                            break;
-                        }
-                    }
+                    BookManager BookManager = new BookManager();
+                    Book book = BookManager.createBook(); 
+                    BookManager.addBookToArray(book,books);
                     BookSaver bookSaver = new BookSaver();
-                    System.out.println("Название книги" +book.getName());
+                    bookSaver.saveBooks(books);
+                    
+                    System.out.println("Создана книга:" +book.getName());
                     break;
                 case "2":
                     System.out.println("--- Список книг ---");
@@ -80,9 +80,15 @@ class App {
                     break;
                 case "3":
                     System.out.println("--- Зарегистрировать читателя ---");
-
-                    CreaterReader createrReader = new CreaterReader();
-                    Reader reader = createrReader.getReader(); 
+                    ReaderManager readerManager = new ReaderManager();
+                    Reader reader = readerManager.createReader();
+                    
+                    System.out.println("<Имя читателя: " 
+                            +reader.getFirstName()
+                            +" "
+                            + reader.getLastname()
+                    );
+                    readerManager.addReaderToArray(reader,readers)
                     for (int i = 0; i < readers.length; i++) {
                         if(readers[i] == null){
                             readers[i] = reader;

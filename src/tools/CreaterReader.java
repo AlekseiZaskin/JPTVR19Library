@@ -26,5 +26,13 @@ public class CreaterReader {
         reader.setFirstname(scanner.nextLine());
         return reader;
     }
-    
+    public void addReaderToArray(Reader reader, Reader[] readers) {
+        for (int i = 0; i < readers.length; i++) {
+            if(readers[i] == null){
+                readers[i] = reader;
+                break;
+            }
+        }
+    }
+       
  }
