@@ -27,6 +27,12 @@ class App {
     private BookManager bookManager = new BookManaer();
     private ReaderManager readerManager = new ReaderManager();
     private LibraryManager libraryManager = new LibraryManager();
+    private BookSaver bookSaver = new BookSaver();
+    private ReaderSaver readerSaver = new ReaderSaver();
+    private HistorySaver historySaver = new HistorySaver();
+    private SecureManager secureManager = new SecureManager();
+    
+    private User loginedUser;
     public App() {
         BookSaver bookSaver = new BookSaver();
         books = bookSaver.loadBooks();
@@ -39,6 +45,7 @@ class App {
     
     public void run(){
         System.out.println("--- Библиотека ---");
+        this.loginedUser = secureManager.checkTask(users,readers)
         boolean repeat = true;
         do{
             System.out.println("Задачи: ");

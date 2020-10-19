@@ -29,9 +29,9 @@ public class BookManager {
     }
 
     public void addBookToArray(Book book, Book[] books) {
-        for (int i - 0; i < books.length; 1++ ) {
+        for (int i = 0; i < books.length; i++ ) {
             if(books[i] == null){
-                books[i] = books;
+                books[i] = book;
                 break;
             }
         }

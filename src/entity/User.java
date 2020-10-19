@@ -5,6 +5,8 @@
  */
 package entity;
 
+import java.util.Scanner;
+
 /**
  *
  * @author pupil
@@ -16,23 +18,28 @@ public class User implements Serializable{
     private Reader reader;
     
     public User() {
-        public class createUser {
-    private Scanner scanner = new Scanner(System.in);
-    public Book createBook() {
-        Book book = new Book();
-        System.out.println("--- Создание книги ---");
-        System.out.println("Введите имя книги: ");
-        book.setName(scanner.nextLine());
-        System.out.println("Введите автора книги: ");
-        book.setAuthor(scanner.nextLine());
-        System.out.println("Введите год издания книги: ");
-        book.setPublishedYear(scanner.nextInt());
-        scanner.nextLine();
-        System.out.println("Введите ISBN книги: ");
-        book.setIsbn(scanner.nextLine());
-        return book;
+public class creatorUser {
+        private Scanner scanner = new Scanner(System.in);
+    
+    public User createUser() {
+        User user = new User();
+        System.out.println("--- Создание пользователя ---");
+        System.out.println("Введите логин: ");
+        user.setLogin(scanner.nextLine());
+        System.out.println("Введите пароль: ");
+        user.setPassword(scanner.nextLine());
+        System.out.println("Укажите роль: ");
+        user.setRole(scanner.nextLine());
+        user.setReader(reader);
+        System.out.println("Пользователь создан: "+user.toString());
+        return user;
     }
+}
+    public void addBookToArray(Book book, Book[] books) {
+    for (int i = 0; i < books.length; i++) {
+        
     }
+}
 
     public User(String login, String password, String role, Reader reader) {
         this.login = login;
@@ -47,7 +54,7 @@ public class User implements Serializable{
                 + "login=" + login 
                 + ", password=" + password 
                 + ", role=" + role 
-                + ", reader=" + reader.
+                + ", reader=" + reader
                 + '}';
     }
     
