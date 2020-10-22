@@ -6,14 +6,14 @@
 package jptvr19library;
 
 
-import tools.LibraryManager;
+import tools.creators.LibraryManager;
 import tools.creatorHistory;
 import tools.history;
 import tools.BookSaver;
 import entity.Book;
 import entity.Reader;
 import java.util.Scanner;
-import tools.BookManager;
+import tools.creators.BookManager;
 import tools.CreaterReader;
 
 /**

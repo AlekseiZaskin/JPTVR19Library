@@ -3,18 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jptvr19library;
+package tools.creators;
+
+import entity.Reader;
+import java.util.Scanner;
 
 /**
  *
  * @author pupil
- */
-class ReaderManager {
-    import java.util.Scanner;
-
-/**
- *
- * @author Melnikov
  */
 public class ReaderManager {
     private Scanner scanner = new Scanner(System.in);
@@ -56,5 +52,4 @@ public class ReaderManager {
         }
     }
     
-}
 }

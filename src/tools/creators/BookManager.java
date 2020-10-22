@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tools;
+package tools.creators;
 
 import java.util.Scanner;
 import entity.Book;
@@ -36,5 +36,13 @@ public class BookManager {
             }
         }
     }
+
+    public void printListBooks(Book[] books) {
+        for (int i = 0; i < books.length; i++) {
+            if(books[i] != null){
+                System.out.println(i+1+". " + books[i].toString());
+            }
+        }   
+    }
     
- }
+}

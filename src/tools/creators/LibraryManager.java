@@ -3,11 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tools;
+package tools.creators;
 
+import tools.creators.BookManager;
 import entity.Book;
 import entity.History;
 import entity.Reader;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Scanner;
 
 /**
@@ -19,7 +22,7 @@ public class LibraryManager {
     private ReaderManager readerManager = new ReaderManager();
     private BookManager bookManager = new BookManager();
     
-    public History takeOnBook (Book[] books, Reader[] readers) {
+    public History takeOnBook(Book[] books, Reader[] readers) {
         History history = new History();
         
         System.out.println("--- Список читателей ---");
@@ -30,7 +33,7 @@ public class LibraryManager {
         scanner.nextLine();
         Reader reader = readers[readerNumber-1];
         history.setReader(reader);
-         bookManager.printListBooks(books);
+        bookManager.printListBooks(books);
         System.out.print("Выберите номер книги: ");
         int bookNumber = scanner.nextInt();
         scanner.nextLine();
